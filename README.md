@@ -1,6 +1,3 @@
-# data-analytics-ml-case-studies
-Applied data analytics and machine learning case studies using Python, covering exploratory analysis, clustering, regression and classification.
-
 # Data Analytics & Machine Learning Case Studies
 
 A collection of applied data analytics and machine learning projects developed in Python.
