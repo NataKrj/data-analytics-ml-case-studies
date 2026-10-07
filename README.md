@@ -1,162 +1,77 @@
 # Data Analytics & Machine Learning Case Studies
 
-A collection of applied data analytics and machine learning projects developed in Python.
+A portfolio collection of applied analytics projects developed in Python. The repository demonstrates a progression from exploratory data analysis to unsupervised learning, regression, classification and model interpretation.
 
-The case studies demonstrate an end-to-end analytical workflow, including data exploration, statistical analysis, clustering, predictive modelling, model evaluation and interpretation.
-
-The repository focuses on practical analytical methods that can be transferred to business, risk and decision-support problems.
+The projects use non-client datasets and are presented as independent analytical case studies. They do not contain confidential or proprietary information.
 
 ## Projects
 
 ### 1. Vehicle Fuel Efficiency Analysis
 
-Exploratory analysis of vehicle characteristics and their relationship with fuel efficiency and performance.
+Explores how engine size, horsepower, vehicle weight, acceleration and other characteristics relate to fuel efficiency.
 
-The analysis examines how engine size, horsepower, vehicle weight and acceleration are associated with fuel consumption.
+**Methods:** exploratory data analysis, descriptive statistics, visualisation, Pearson correlation, cross-tabulation and pairwise analysis.
 
-**Methods used:**
-- Data preparation
-- Descriptive statistics
-- Exploratory Data Analysis (EDA)
-- Histograms and box plots
-- Correlation analysis
-- Scatter plots
-- Cross-tabulation
-- Data visualization
+**Selected findings:** MPG shows strong negative relationships with vehicle weight and engine displacement, while horsepower and displacement are strongly positively related.
 
-**Selected findings:**
-- Vehicle weight and fuel efficiency show a strong negative relationship.
-- Engine displacement is negatively associated with MPG.
-- Horsepower and engine displacement show a strong positive relationship.
-
----
+[Open notebook](01_vehicle_fuel_efficiency/vehicle_fuel_efficiency_analysis.ipynb)
 
 ### 2. California Housing Market Segmentation
 
-Unsupervised learning analysis designed to identify meaningful segments within housing data based on property, demographic and economic characteristics.
+Uses unsupervised learning to explore whether housing observations can be grouped into meaningful segments based on housing, demographic and economic characteristics.
 
-Several clustering approaches are compared to understand how different preprocessing and modelling choices affect the resulting segments.
+**Methods:** hierarchical clustering, standardisation, K-Means, ANOVA, silhouette analysis, elbow method and cluster profiling.
 
-**Methods used:**
-- Data standardization
-- Hierarchical clustering
-- Single, complete, average and Ward linkage
-- K-Means clustering
-- Cluster profiling
-- ANOVA
-- Elbow method
-- Silhouette analysis
+The project also illustrates an important modelling point: different cluster-validation methods can suggest different solutions, so statistical diagnostics should be considered together with interpretability and use case.
 
-**Analytical objective:**
-
-To determine whether housing observations can be grouped into meaningful segments and identify the characteristics that distinguish these groups.
-
----
+[Open notebook](02_housing_market_segmentation/housing_market_segmentation.ipynb)
 
 ### 3. House Price Prediction & Feature Analysis
 
-Predictive modelling of residential property prices using housing characteristics such as living area, number of bathrooms, property grade, condition, renovation information and other features.
+Investigates property price drivers and develops regression-based prediction models using structural and quality characteristics of residential properties.
 
-The project combines statistical modelling with model diagnostics and feature interpretation.
+**Methods:** exploratory analysis, correlation analysis, OLS regression, residual diagnostics, outlier treatment, stepwise selection, prediction intervals, polynomial regression, XGBoost and SHAP.
 
-**Methods used:**
-- Exploratory Data Analysis
-- Correlation analysis
-- Linear regression
-- Variable significance analysis
-- Stepwise feature selection
-- Residual analysis
-- Outlier detection and treatment
-- Polynomial regression
-- Prediction intervals
-- XGBoost
-- SHAP feature interpretation
+**Selected result:** the original linear model reported R² of approximately **0.654**, increasing to approximately **0.688** after removal of large-residual outliers.
 
-**Selected result:**
-
-Removing influential outliers improved the regression model from approximately **R² = 0.654 to R² = 0.688**, demonstrating the effect of data quality and extreme observations on predictive performance.
-
-Important predictors included living area, property grade, bathrooms, waterfront location and other property characteristics.
-
----
+[Open notebook](03_house_price_prediction/house_price_prediction.ipynb)
 
 ### 4. Housing Segment Classification
 
-Classification modelling based on data-driven housing segments.
+Combines unsupervised and supervised learning. K-Means is used to create housing segments, after which Logistic Regression and Linear Discriminant Analysis are used to reproduce the segment assignment.
 
-The project explores whether previously identified housing groups can be predicted using supervised learning methods and compares alternative classification approaches.
+**Methods:** K-Means, standardisation, Logistic Regression, LDA, confusion matrices, precision, recall, F1-score and accuracy.
 
-**Methods used:**
-- K-Means based segment creation
-- Train/test split
-- Feature scaling
-- Logistic Regression
-- Linear Discriminant Analysis (LDA)
-- Confusion matrix
-- Precision
-- Recall
-- F1-score
-- Accuracy
+**Important limitation:** the target classes are generated from the same variables used for classification. The high reported accuracy therefore demonstrates recovery of the clustering structure rather than prediction of an independent real-world outcome.
 
-**Selected result:**
+[Open notebook](04_housing_segment_classification/housing_segment_classification.ipynb)
 
-The final classification models achieved approximately **95% accuracy**, with Logistic Regression and Discriminant Analysis showing similar overall performance.
+## Analytical workflow
 
----
-
-## Analytical Workflow
-
-The projects collectively demonstrate the following workflow:
-
-`Data → Preparation → Exploration → Statistical Analysis → Modelling → Evaluation → Interpretation`
-
-The repository includes examples of both:
-
-- **Unsupervised learning** — clustering and segmentation
-- **Supervised learning** — regression and classification
+`Data → Preparation → Exploration → Modelling → Evaluation → Interpretation`
 
 ## Technologies
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Statsmodels
-- Matplotlib
-- Seaborn
-- XGBoost
-- SHAP
-- Jupyter Notebook
+Python · Pandas · NumPy · Matplotlib · Seaborn · SciPy · scikit-learn · statsmodels · XGBoost · SHAP · Jupyter Notebook
 
-## Skills Demonstrated
-
-- Data cleaning and preparation
-- Exploratory data analysis
-- Statistical analysis
-- Feature analysis
-- Data visualization
-- Clustering and segmentation
-- Regression modelling
-- Classification
-- Model evaluation
-- Model interpretation
-- Translating analytical results into practical findings
-
-## Repository Structure
+## Repository structure
 
 ```text
 data-analytics-ml-case-studies/
-│
 ├── README.md
-│
+├── requirements.txt
+├── data/
+│   └── README.md
 ├── 01_vehicle_fuel_efficiency/
 │   └── vehicle_fuel_efficiency_analysis.ipynb
-│
 ├── 02_housing_market_segmentation/
 │   └── housing_market_segmentation.ipynb
-│
 ├── 03_house_price_prediction/
 │   └── house_price_prediction.ipynb
-│
 └── 04_housing_segment_classification/
     └── housing_segment_classification.ipynb
+```
+
+## Portfolio note
+
+These notebooks were reorganised for portfolio presentation. The analytical content and reported results are based on the original project work, while the public versions use clearer structure, neutral filenames and additional methodological notes where needed.
